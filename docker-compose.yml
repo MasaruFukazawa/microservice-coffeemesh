@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  api:
+    build:
+      dockerfile: api/Dockerfile
+    volumes:
+      - ./api/src/:/src
+    command: uvicorn orders.app:app --reload --reload --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    tty: true
+    #depends_on:
+    #  - db
