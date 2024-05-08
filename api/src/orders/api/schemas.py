@@ -17,7 +17,7 @@ class SizeEnum(Enum):
 
 
 class StatusEnum(Enum):
-    create = "create"
+    created = "created"
     paid = "paid"
     progress = "progress"
     cancelled = "cancelled"
@@ -32,7 +32,7 @@ class OrderItemSchema(BaseModel):
 
     @validator("quantity")
     def quantity_non_nullable(cls, value):
-        assert value is not None, 'quantity may not be None'
+        assert value is not None, "quantity may not be None"
         return value
 
 
@@ -42,8 +42,8 @@ class CreateOrderSchema(BaseModel):
 
 class GetOrderSchema(CreateOrderSchema):
     id: UUID
-    created: datetime
     status: StatusEnum
+    created: datetime
 
 
 class GetOrdersSchema(BaseModel):
