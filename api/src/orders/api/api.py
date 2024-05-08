@@ -68,11 +68,7 @@ def update_order(order_id: UUID, order_details: CreateOrderSchema):
     raise HTTPException(status_code=404, detail=f"Order with ID {order_id} not found")
 
 
-@app.delete(
-    "/orders/{order_id}",
-    status_code=status.HTTP_204_NO_CONTENT
-    #response_model=Response
-)
+@app.delete("/orders/{order_id}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_order(order_id: UUID):
 
     for index, order in enumerate(ORDERS):
