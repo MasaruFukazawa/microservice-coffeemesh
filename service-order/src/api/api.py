@@ -9,7 +9,7 @@ from fastapi import HTTPException
 from starlette import status
 from starlette.responses import Response
 
-from orders.app import app
+from app import app
 
 from .schemas import CreateOrderSchema, GetOrderSchema, GetOrdersSchema
 

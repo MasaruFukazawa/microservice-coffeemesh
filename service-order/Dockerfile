@@ -7,7 +7,8 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /src
 
 # プロジェクトのファイルをコピー
-COPY ./api/src /src
+COPY ./service-order/src /src
+COPY ./service-order/docs/oas.yaml /src
 
 RUN pip install poetry && poetry config virtualenvs.create false
-RUN poetry install 
+RUN poetry install
