@@ -8,7 +8,9 @@ WORKDIR /src
 
 # プロジェクトのファイルをコピー
 COPY ./service-order/src /src
-COPY ./service-order/docs/oas.yaml /src
+
+RUN mkdir /docs
+COPY ./service-order/docs/oas.yaml /docs
 
 RUN pip install poetry && poetry config virtualenvs.create false
 RUN poetry install

@@ -6,7 +6,7 @@ services:
       dockerfile: service-order/Dockerfile
     volumes:
       - ./service-order/src/:/src
-      - ./service-order/docs/oas.yaml:/src/oas.yaml
+      - ./service-order/docs/oas.yaml:/docs/oas.yaml
     command: uvicorn app:app --reload --reload --host 0.0.0.0 --port 8000
     ports:
       - "8000:8000"
