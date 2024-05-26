@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "src"
+version = "0.1.0"
+description = ""
+authors = ["MasaruFukazawa"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+uvicorn = "^0.29.0"
+black = "^24.4.2"
+isort = "^5.13.2"
+bandit = "^1.7.8"
+flake8 = "^7.0.0"
+pydantic = "^2.7.1"
+pyyaml = "^6.0.1"
+flask-smorest = "^0.44.0"
+flask = "^3.0.3"
+marshmallow = "^3.21.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

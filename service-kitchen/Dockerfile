@@ -1,0 +1,16 @@
+FROM python:3
+
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# ワークディレクトリの作成
+WORKDIR /src
+
+# プロジェクトのファイルをコピー
+COPY ./service-kitchen/src /src
+
+RUN mkdir /docs
+COPY ./service-kitchen/docs/oas.yaml /docs
+
+RUN pip install poetry && poetry config virtualenvs.create false
+RUN poetry install
