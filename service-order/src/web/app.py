@@ -9,4 +9,4 @@ app = FastAPI(debug=True, openapi_url="/openapi/order.json", docs_url="/docs/ord
 oas_doc = yaml.safe_load(Path("/docs/oas.yaml").read_text())
 app.openapi = lambda: oas_doc
 
-from api import api
+from .api import api
