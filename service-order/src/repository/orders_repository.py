@@ -4,7 +4,7 @@ from repository.models import OrderItemModel, OrderModel
 from service.orders_domain import Order
 
 
-class OrderRepository:
+class OrdersRepository:
 
     def __init__(self, session) -> None:
         self.__session = session

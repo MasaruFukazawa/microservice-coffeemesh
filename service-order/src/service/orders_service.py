@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from ..repository.orders_repository import OrderRepository
-from .exceptions import OrderNotFoundError
+from repository.orders_repository import OrdersRepository
+from service.exceptions import OrderNotFoundError
 
 
-class OrderService:
+class OrdersService:
     """
     注文サービス
+    .. 注文サービスが提供している機能
     """
 
     def __init__(self, orders_repository):

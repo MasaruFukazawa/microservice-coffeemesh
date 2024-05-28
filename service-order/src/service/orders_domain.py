@@ -4,7 +4,7 @@ from typing import Any
 
 import requests
 
-from .exceptions import APIIntegrationError, InvalidActionError
+from service.exceptions import APIIntegrationError, InvalidActionError
 
 
 class OrderItem:
