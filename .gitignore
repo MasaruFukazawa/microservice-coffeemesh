@@ -161,3 +161,7 @@ cython_debug/
 
 *.db
 .DS_Store
+
+private_key.pem
+pubkey.pem
+public_key.pem

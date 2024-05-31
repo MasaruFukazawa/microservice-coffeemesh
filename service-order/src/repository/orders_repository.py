@@ -9,11 +9,16 @@ class OrdersRepository:
     def __init__(self, session) -> None:
         self.__session = session
 
-    def _get(self, id):
-        return self.__session.query(OrderModel).filter(OrderModel.id == str(id)).first()
+    def _get(self, id, **filters):
+        return (
+            self.__session.query(OrderModel)
+            .filter(OrderModel.id == str(id))
+            .filter(**filters)
+            .first()
+        )
 
-    def get(self, id) -> Order | None:
-        order = self._get(id)
+    def get(self, id, **filters) -> Order | None:
+        order = self._get(id, **filters)
 
         if order is not None:
             return Order(**order.dict())
@@ -36,8 +41,10 @@ class OrdersRepository:
 
         return [Order(**record.dict()) for record in records]
 
-    def add(self, items) -> Order:
-        recode: OrderModel = OrderModel(item=[OrderItemModel(**item) for item in items])
+    def add(self, items, user_id) -> Order:
+        recode: OrderModel = OrderModel(
+            item=[OrderItemModel(**item) for item in items], user_id=user_id
+        )
         self.__session.add(recode)
 
         return Order(**recode.dict(), order=recode)

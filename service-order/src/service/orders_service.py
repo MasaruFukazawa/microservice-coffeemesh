@@ -13,12 +13,12 @@ class OrdersService:
     def __init__(self, orders_repository):
         self.orders_repository = orders_repository
 
-    def place_order(self, item):
+    def place_order(self, item, user_id):
         # データベースレコードを作成して注文を実行
-        return self.orders_repository.add(item)
+        return self.orders_repository.add(item, user_id)
 
-    def get_order(self, order_id):
-        order = self.orders_repository.get(order_id)
+    def get_order(self, order_id, **filters):
+        order = self.orders_repository.get(order_id, **filters)
 
         if order is not None:
             return order
@@ -34,7 +34,7 @@ class OrdersService:
         return self.orders_repository.update(order_id, {"items": items})
 
     def list_orders(self, **filters):
-        limit = filters.pop("limite", None)
+        limit = filters.pop("limit", None)
         return self.orders_repository.list(limit, **filters)
 
     def pay_order(self, order_id):
