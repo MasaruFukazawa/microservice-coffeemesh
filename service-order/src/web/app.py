@@ -73,7 +73,7 @@ class AuthorizeRequestMiddleware(BaseHTTPMiddleware):
         return await call_next(request)
 
 
-app.add_middleware(AuthorizeRequestMiddleware)
+#app.add_middleware(AuthorizeRequestMiddleware)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],

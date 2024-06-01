@@ -7,15 +7,9 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-ariadne = "^0.23.0"
-uvicorn = "^0.30.0"
-black = "^24.4.2"
-isort = "^5.13.2"
-bandit = "^1.7.8"
-flake8 = "^7.0.0"
-graphene = "^3.3"
 pytest = "^8.2.1"
-schemathesis = "^3.29.1"
+schemathesis = "^3.29.2"
+
 
 [build-system]
 requires = ["poetry-core"]

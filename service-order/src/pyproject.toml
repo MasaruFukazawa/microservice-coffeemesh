@@ -20,6 +20,9 @@ alembic = "^1.13.1"
 requests = "^2.32.2"
 cryptography = "^42.0.7"
 pyjwt = "^2.8.0"
+pytest = "^8.2.1"
+schemathesis = "^3.29.1"
+dredd-hooks = "^0.2.0"
 
 
 [build-system]

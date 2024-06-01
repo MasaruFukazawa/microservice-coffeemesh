@@ -32,26 +32,40 @@ services:
     ports:
       - "8002:8002"
     tty: true
-#  mock-service-kitchen:
-#    build:
-#      dockerfile: mock-service-kitchen/Dockerfile
-#    volumes:
-#      - ./mock-service-kitchen/src/:/src
-#      - ./mock-service-kitchen/docs/kitchen.yaml:/docs/kitchen.yaml
-#    command: ./node_modules/.bin/prism mock /docs/kitchen.yaml --host 0.0.0.0 --port 3000
-#    ports:
-#      - "3000:3000"
-#    tty: true
-#  mock-service-payments:
-#    build:
-#      dockerfile: mock-service-payments/Dockerfile
-#    volumes:
-#      - ./mock-service-payments/src/:/src
-#      - ./mock-service-payments/docs/payments.yaml:/docs/payments.yaml
-#    command: ./node_modules/.bin/prism mock /docs/payments.yaml --host 0.0.0.0 --port 3001
-#    ports:
-#      - "3001:3001"
-#    tty: true
+  mock-service-kitchen:
+    build:
+      dockerfile: mock-service-kitchen/Dockerfile
+    volumes:
+      - ./mock-service-kitchen/src/:/src
+      - ./mock-service-kitchen/docs/kitchen.yaml:/docs/kitchen.yaml
+    command: ./node_modules/.bin/prism mock /docs/kitchen.yaml --host 0.0.0.0 --port 3000
+    ports:
+      - "3000:3000"
+    tty: true
+  mock-service-payments:
+    build:
+      dockerfile: mock-service-payments/Dockerfile
+    volumes:
+      - ./mock-service-payments/src/:/src
+      - ./mock-service-payments/docs/payments.yaml:/docs/payments.yaml
+    command: ./node_modules/.bin/prism mock /docs/payments.yaml --host 0.0.0.0 --port 3001
+    ports:
+      - "3001:3001"
+    tty: true
+  dredd:
+    build:
+      dockerfile: dredd/Dockerfile
+    volumes:
+      - ./dredd/src/:/src
+      - ./service-order/docs/oas.yaml:/docs/oas.yaml
+    tty: true
+  schemathesis:
+    build:
+      dockerfile: schemathesis/Dockerfile
+    volumes:
+      - ./schemathesis/src/:/src
+      - ./service-order/docs/oas.yaml:/docs/oas.yaml
+    tty: true
 #  mock-graphql-server:
 #    build:
 #      dockerfile: mock-graphql-server/Dockerfile
